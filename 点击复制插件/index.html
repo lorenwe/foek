@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <div id="bar">vfdasrehteasjhndtaehaeszjt</div>
+    <a href="javascript:void(0);" id="btn" data-clipboard-action="copy" data-clipboard-target="#bar">点击复制链接</a>
+</body>
+</html>
+<script type="text/javascript" src="clipboard.min.js" charset="utf-8"></script>
+<script>
+	var clipboard = new Clipboard('#btn');
+	clipboard.on('success', function(e) {
+		console.info('Text:', e.text);
+		alert("复制成功！");
+		e.clearSelection();
+	});
+
+	clipboard.on('error', function(e) {
+		console.error('Action:', e.action);
+		console.error('Trigger:', e.trigger);
+	});
+</script>
